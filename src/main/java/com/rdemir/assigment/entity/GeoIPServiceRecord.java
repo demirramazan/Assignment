@@ -5,18 +5,27 @@ import java.io.Serializable;
 
 @Entity
 @Table
-public class GeoIPServiceResponse implements Serializable {
+public class GeoIPServiceRecord implements Serializable {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+
     private int returnCode;
     private String ip;
     private String returnCodeDetails;
     private String countryName;
     private String countryCode;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public int getReturnCode() {
         return returnCode;
@@ -61,9 +70,9 @@ public class GeoIPServiceResponse implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof GeoIPServiceResponse)) return false;
+        if (!(o instanceof GeoIPServiceRecord)) return false;
 
-        GeoIPServiceResponse that = (GeoIPServiceResponse) o;
+        GeoIPServiceRecord that = (GeoIPServiceRecord) o;
 
         if (returnCode != that.returnCode) return false;
         if (!ip.equals(that.ip)) return false;
