@@ -18,6 +18,7 @@ public class ServisIdWSClient {
     private RestTemplate restTemplate;
 
     public ServiceIdGeneratorModel getIdFromService() {
+
         JAXBContext jaxbContext;
         try {
             ResponseEntity<String> results = restTemplate
