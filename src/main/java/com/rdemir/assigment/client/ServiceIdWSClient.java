@@ -2,11 +2,10 @@ package com.rdemir.assigment.client;
 
 import com.rdemir.assigment.model.ServiceIdModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-/**
- * Created by ramazan on 25.05.2017.
- */
+@Component
 public class ServiceIdWSClient {
     @Autowired
     private RestTemplate restTemplate;
