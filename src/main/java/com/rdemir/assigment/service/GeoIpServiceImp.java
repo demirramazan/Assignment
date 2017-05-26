@@ -4,7 +4,7 @@ import com.rdemir.assigment.client.GeoIPWSClient;
 import com.rdemir.assigment.client.ServisIdWSClient;
 import com.rdemir.assigment.entity.GeoIPServiceRecord;
 import com.rdemir.assigment.model.GeoIPWSModel;
-import com.rdemir.assigment.model.ServiceIdGeneratorModel;
+import com.rdemir.assigment.model.ServiceIdModel;
 import com.rdemir.assigment.reporsitory.IServiceRecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +31,7 @@ public class GeoIpServiceImp implements GeoIPService {
 
     private void saveToDb(GeoIPWSModel fromService) {
 
-        ServiceIdGeneratorModel idModel= IdWSClient.getIdFromService();;
+        ServiceIdModel idModel= IdWSClient.getIdFromService();;
 
         GeoIPServiceRecord record = new GeoIPServiceRecord();
         record.setCountryCode(fromService.getCountryCode());
@@ -39,7 +39,7 @@ public class GeoIpServiceImp implements GeoIPService {
         record.setIp(fromService.getIp());
         record.setReturnCode(fromService.getReturnCode());
         record.setReturnCodeDetails(fromService.getReturnCodeDetails());
-        record.setId(idModel.getId());//burası2. servis çaprıldığında gelen değerden dolacak
+        record.setId(idModel.getSubModel().getId());//burası2. servis çaprıldığında gelen değerden dolacak
 
         serviceRecordRepo.save(record);
 

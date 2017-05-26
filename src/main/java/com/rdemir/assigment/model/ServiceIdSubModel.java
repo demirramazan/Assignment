@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties
-public class ServiceIdGeneratorModel {
+public class ServiceIdSubModel {
+
 
     @JsonIgnore
     private Long id;
@@ -27,4 +28,11 @@ public class ServiceIdGeneratorModel {
         this.quote = quote;
     }
 
+    @Override
+    public String toString() {
+        return "ServiceIdSubModel{" +
+                "id=" + id +
+                ", quote='" + quote + '\'' +
+                '}';
+    }
 }
