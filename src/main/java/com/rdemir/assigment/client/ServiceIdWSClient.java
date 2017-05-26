@@ -7,7 +7,7 @@ import org.springframework.web.client.RestTemplate;
 /**
  * Created by ramazan on 25.05.2017.
  */
-public class ServisIdWSClient {
+public class ServiceIdWSClient {
     @Autowired
     private RestTemplate restTemplate;
 

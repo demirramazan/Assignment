@@ -1,7 +1,7 @@
 package com.rdemir.assigment.service;
 
 import com.rdemir.assigment.client.GeoIPWSClient;
-import com.rdemir.assigment.client.ServisIdWSClient;
+import com.rdemir.assigment.client.ServiceIdWSClient;
 import com.rdemir.assigment.entity.GeoIPServiceRecord;
 import com.rdemir.assigment.model.GeoIPWSModel;
 import com.rdemir.assigment.model.ServiceIdModel;
@@ -19,7 +19,9 @@ public class GeoIpServiceImp implements GeoIPService {
     GeoIPWSClient serviceClient;
 
     @Autowired
-    ServisIdWSClient IdWSClient;
+    //@Qualifier(value = "serviceIdWSClient")
+    ServiceIdWSClient serviceIdWSClient;
+
     @Autowired
     IServiceRecordRepository serviceRecordRepo;
 
@@ -31,7 +33,7 @@ public class GeoIpServiceImp implements GeoIPService {
 
     private void saveToDb(GeoIPWSModel fromService) {
 
-        ServiceIdModel idModel= IdWSClient.getIdFromService();;
+        ServiceIdModel idModel = serviceIdWSClient.getIdFromService();
 
         GeoIPServiceRecord record = new GeoIPServiceRecord();
         record.setCountryCode(fromService.getCountryCode());
