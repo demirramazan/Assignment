@@ -1,16 +1,17 @@
 package com.rdemir.assigment.model;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties
-public class ServiceIdSubModel {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Value {
 
 
-    @JsonIgnore
     private Long id;
     private String quote;
+
+    public Value() {
+    }
 
     public Long getId() {
         return id;
@@ -30,7 +31,7 @@ public class ServiceIdSubModel {
 
     @Override
     public String toString() {
-        return "ServiceIdSubModel{" +
+        return "Value{" +
                 "id=" + id +
                 ", quote='" + quote + '\'' +
                 '}';

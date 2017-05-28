@@ -41,7 +41,7 @@ public class GeoIpServiceImp implements GeoIPService {
         record.setIp(fromService.getIp());
         record.setReturnCode(fromService.getReturnCode());
         record.setReturnCodeDetails(fromService.getReturnCodeDetails());
-        record.setId(idModel.getSubModel().getId());//burası2. servis çaprıldığında gelen değerden dolacak
+        record.setId(idModel.getValue().getId());//burası2. servis çaprıldığında gelen değerden dolacak
 
         serviceRecordRepo.save(record);
 

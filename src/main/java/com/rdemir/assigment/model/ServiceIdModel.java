@@ -2,12 +2,14 @@ package com.rdemir.assigment.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ServiceIdModel {
 
     private String type;
-    private ServiceIdSubModel subModel;
+    private Value value;
 
+    public ServiceIdModel() {
+    }
 
     public String getType() {
         return type;
@@ -17,18 +19,18 @@ public class ServiceIdModel {
         this.type = type;
     }
 
-    public ServiceIdSubModel getSubModel() {
-        return subModel;
+    public Value getValue() {
+        return value;
     }
 
-    public void setSubModel(ServiceIdSubModel subModel) {
-        this.subModel = subModel;
+    public void setValue(Value value) {
+        this.value = value;
     }
     @Override
     public String toString() {
         return "ServiceIdModel{" +
                 "type='" + type + '\'' +
-                ", subModel=" + subModel +
+                ", value=" + value +
                 '}';
     }
 }

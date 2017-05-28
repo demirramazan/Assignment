@@ -17,8 +17,10 @@ public class AssigmentApplicationTests {
 
     @Test
     public void contextLoads() {
-        ServiceIdModel serviceIdModel = restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", ServiceIdModel.class);
-        Assert.assertNotNull(serviceIdModel.getSubModel().getId());
+        ServiceIdModel serviceIdModel =
+                restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", ServiceIdModel.class);
+        serviceIdModel.toString();
+        Assert.assertNotNull(serviceIdModel.getValue().getId());
     }
 
 }
